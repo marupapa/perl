@@ -1,13 +1,16 @@
 use strict;
 use warnings;
 
-print "Hello world perl !!!! \n";
+use Time::Piece;
+use Time::Seconds;
 
+my $t = Time::Piece->strptime('2018-01-01', '%Y-%m-%d');
 
+my $t1 = $t + ONE_DAY;
+my $t2 = $t + ONE_MONTH;
+my $t3 = $t + ONE_YEAR;
 
-sub is_int {
-  my $num = shift;
-  
-  # 値が正の整数でない場合に例外を発生させる
-  die "\"$num\" must be number" unless $num =~ /^\d+$/;
-}
+print $t . "\n";
+print $t1 . "\n";
+print $t2 . "\n";
+print $t3 . "\n";
