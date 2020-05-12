@@ -1,34 +1,28 @@
-#!/opt/local/bin/perl
- 
+# 構文の間違いを自動的にチェック
 use strict;
 use warnings;
-use utf8;
-use threads;
-use Time::HiRes;
- 
-print "Content-type: text/html; charset=utf-8\n\n";
- 
-my $threads = sub
-{
-    my $name = shift;
-    for ('A' .. 'E')
-    {
-        print +("${name} - ${_}"), "\n";
-        Time::HiRes::sleep(0.1);
-        threads->yield();
+
+# コマンドライン引数の取得
+my @nums = 11; #@ARGV;
+
+# 和を求めるサブルーチンの呼び出し
+my $total = sum(@nums);
+
+# 和の出力
+print "Total\n";
+print "$total\n";
+
+
+# 合計を計算するサブルーチン
+sub sum {
+    # 引数の受け取り
+    my @nums = @_;
+    
+    # 和の計算
+    my $total = 0;
+    foreach my $num (@nums) {
+        $total += $num;
     }
-};
- 
-my $first  = threads->new(\&$threads, "1");
-my $second = threads->new(\&$threads, "2");
-my $third  = threads->new(\&$threads, "3");
-my $fourth = threads->new(\&$threads, "4");
-my $fifth  = threads->new(\&$threads, "5");
- 
-$first->join;
-$second->join;
-$third->join;
-$fourth->join;
-$fifth->join;
- 
-exit;
+    # 戻り値
+    return $total;
+}
