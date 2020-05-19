@@ -1,5 +1,5 @@
 # stack
-
+print "stack start \n";
 my @valuesStack = ();
 
 push @valuesStack, 1;
@@ -13,4 +13,17 @@ while (scalar(@valuesStack) > 0) {
 }
 
 #queue
+print "queue start \n";
+my @valuesQ = ();
+
+push @valuesQ, 1;
+push @valuesQ, 2;
+push @valuesQ, 3;
+
+while (scalar(@valuesQ) > 0) {
+    my $value = shift(@valuesQ);
+    print "$value \n"
+}
+
+
 
