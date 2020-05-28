@@ -1,29 +1,27 @@
-use strict;
+
 use warnings;
-use utf8;
-
-print "入力してください。";
-
-my $line = <STDIN>;
-print "入力された値 : $line";
-
-# binmode STDIN, ':encoding(cp932)';
-# binmode STDOUT, ':encoding(cp932)';
-# binmode STDERR, ':encoding(cp932)';
 
 
-# print "while文による繰り返し¥n";
+sub printRefArrays
+{
+	my($aRefArray1,$aRefArray2)=@_;
 
-# while (my $line = <STDIN>){
-#   chomp($line);
-#   print "$line¥n";
-# }
+	for(my($tCount1)=0;$tCount1<=($#$aRefArray1);$tCount1++)
+	{
+		print $$aRefArray1[$tCount1];
+	}
 
-# print "for文による繰り返し¥n";
+	print "\n";
 
-# for (;<STDIN>;){
-#   chomp($_);
-#   print "$_¥n";
-# }
+	for(my($tCount1)=0;$tCount1<=($#$aRefArray2);$tCount1++)
+	{
+		print $$aRefArray2[$tCount1];
+	}
 
-# print "終了しました¥n";
+	print "\n";
+}
+
+@tTestArray1=('1','2','3','4','5');
+@tTestArray2=('a','b','c','d','e');
+
+&printRefArrays(\@tTestArray1,\@tTestArray2);
